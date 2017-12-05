@@ -56,7 +56,7 @@ class Streamer(descriptor.Visitor):
             self.report_size[int(e.way)][self.report_id] += pad
             a(item.Item.itemclass(item.Item.Main, e.way)(item.DataItem.Constant | item.DataItem.Variable))
 
-        if isinstance(e, descriptor.Value) and not isinstance(e, descriptor.Align):
+        if isinstance(e, descriptor.Value) and not isinstance(e, (descriptor.Align, descriptor.Padding)):
             constant = bool(e.flags & item.DataItem.Constant)
             if not constant:
                 if e.usage:
