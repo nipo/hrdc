@@ -269,4 +269,4 @@ argument.
 
 Well known constants are: Centimeter, Radian, Inch, Degree, Gram,
 Slug, Second, Kelvin, Fahrenheit, Ampere, Candela, CmPerSec, Momentum,
-G, Newton, Joule, Voltage.
+G, Newton, Joule, Volt.

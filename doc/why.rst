@@ -108,7 +108,8 @@ Corresponding code with textual form, from a `sibling tool`_:
 This defines a gamepad, 15 buttons, a hat switch, two thumb sticks and
 two analog triggers.
 
-There are some broken constructs a compiler could do nothing about:
+There are some broken constructs (despite in some third party
+recommandation documents) a compiler could do nothing about:
 
 - line 43, the second thumb stick using Z and Rz as axis Usage codes
   instead of X and Y in another Physical Collection (see `HUT1_12v2`_,
