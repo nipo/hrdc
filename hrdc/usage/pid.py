@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 PhysicalInterfaceDevice = Usage("pid.PhysicalInterfaceDevice", 0xf0001, CA)
 Normal = Usage("pid.Normal", 0xf0020, DV)

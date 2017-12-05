@@ -1,8 +1,8 @@
 from ..stream import Stream
 from ..stream import item
 from .. import usage
-from descriptor import *
-from descriptor import Hierarchical
+from .descriptor import *
+from .descriptor import Hierarchical
 
 class Extractor(Stream):
     def __init__(self):
@@ -55,13 +55,13 @@ class Extractor(Stream):
         """Stream entry point"""
         try:
             self._append(i)
-        except Exception, e:
-            print "Exception while appending item", i
-            print "globals", self.globals
-            print "locals", self.locals
-            print "usages", self.usages
-            print "strings", self.strings
-            print "designators", self.designators
+        except Exception as e:
+            print("Exception while appending item", i)
+            print("globals", self.globals)
+            print("locals", self.locals)
+            print("usages", self.usages)
+            print("strings", self.strings)
+            print("designators", self.designators)
             raise
 
     def _append(self, i):
@@ -186,7 +186,7 @@ class Extractor(Stream):
             self.leave()
             assert len(arrayCollection) == 0
 
-            uArray = map(self.usage, range(len(self.usages)))
+            uArray = list(map(self.usage, list(range(len(self.usages)))))
             try:
                 uArray = usage.UsageRange.from_array(uArray)
             except ValueError:
@@ -207,11 +207,11 @@ class Extractor(Stream):
                  len(self.usages) == (self.globalValue(item.GlobalItem.LogicalMaximum)
                                       - self.globalValue(item.GlobalItem.LogicalMinimum) + 1):
 
-            uArray = map(self.usage, range(len(self.usages)))
+            uArray = list(map(self.usage, list(range(len(self.usages)))))
             try:
                 uArray = usage.UsageRange.from_array(uArray)
-            except ValueError, e:
-                print e
+            except ValueError as e:
+                print(e)
                 pass
             for no in range(self.globalValue(item.GlobalItem.ReportCount)):
                 self.addValue(
@@ -288,7 +288,7 @@ def main():
     p = _parser(args.input, extractor)
     p.read()
 
-    from dumper import Dumper
+    from .dumper import Dumper
     extractor.root.accept(Dumper(args.output))
 
 

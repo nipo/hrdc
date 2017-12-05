@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 Sensor = Usage("sensors.Sensor", 0x200001, CA, CP)
 Biometric = Usage("sensors.Biometric", 0x200010, CA, CP)

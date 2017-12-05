@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 NumLock = Usage("led.NumLock", 0x80001, OOC)
 CapsLock = Usage("led.CapsLock", 0x80002, OOC)

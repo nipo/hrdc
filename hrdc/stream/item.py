@@ -1,6 +1,15 @@
 from ..util import NamedConstant
 
-class Item:
+class _ItemMeta(type):
+    def __init__(cls, name, bases, dct):
+        type.__init__(cls, name, bases, dct)
+        try:
+            key = int(cls.kind), int(cls.tag)
+            Item.registry[key] = cls
+        except:
+            pass
+
+class Item(metaclass = _ItemMeta):
     Main = NamedConstant("Main", 0)
     Global = NamedConstant("Global", 1)
     Local = NamedConstant("Local", 2)
@@ -8,15 +17,6 @@ class Item:
     signed = False
 
     registry = {}
-
-    class __metaclass__(type):
-        def __init__(cls, name, bases, dct):
-            type.__init__(cls, name, bases, dct)
-            try:
-                key = int(cls.kind), int(cls.tag)
-                Item.registry[key] = cls
-            except:
-                pass
 
     @property
     def tagname(self):
@@ -30,11 +30,11 @@ class Item:
 
     @classmethod
     def parse(cls, data):
-        kind = (ord(data[0]) >> 2) & 3
-        tag = ord(data[0]) >> 4
+        kind = (data[0] >> 2) & 3
+        tag = data[0] >> 4
         itemclass = cls.itemclass(kind, tag)
         
-        size = ord(data[0]) & 0x3
+        size = data[0] & 0x3
 
         if size == 1:
             format = "<B"
@@ -102,9 +102,9 @@ class Item:
         if self.signed:
             fmt = fmt.lower()
 
-        r = chr((self.tag << 4) | (self.kind << 2) | l)
+        r = bytes([(self.tag << 4) | (self.kind << 2) | l])
         if fmt:
-            r += struct.pack(fmt, self.value)
+            r += struct.pack(fmt, int(self.value))
         return r
 
     def __cmp__(self, other):

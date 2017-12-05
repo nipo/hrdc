@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 GeneralPurposeIOCard = Usage("arcade.GeneralPurposeIOCard", 0xff000001, CA)
 CoinDoor = Usage("arcade.CoinDoor", 0xff000002, CA)

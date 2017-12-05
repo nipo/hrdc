@@ -1,4 +1,4 @@
-import descriptor
+from . import descriptor
 from ..stream import item
 
 __all__ = ["Streamer"]

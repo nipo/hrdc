@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 FlightSimulationDevice = Usage("simulation.FlightSimulationDevice", 0x20001, CA)
 AutomobileSimulationDevice = Usage("simulation.AutomobileSimulationDevice", 0x20002, CA)

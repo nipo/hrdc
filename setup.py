@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name = "hrdc",
@@ -12,8 +12,5 @@ setup(
         "Programming Language :: Python",
     ],
     use_2to3 = False,
-    packages = ["hrdc", "hrdc.descriptor",
-                "hrdc.stream", "hrdc.stream.formatter",
-                "hrdc.stream.optimizer", "hrdc.stream.parser",
-                "hrdc.usage", "hrdc.util"],
+    packages = find_packages(),
 )

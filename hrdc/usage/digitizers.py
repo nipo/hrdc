@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 Digitizer = Usage("digitizers.Digitizer", 0xd0001, CA)
 Pen = Usage("digitizers.Pen", 0xd0002, CA)

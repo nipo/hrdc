@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 ConsumerControl = Usage("consumer.ConsumerControl", 0xc0001, CA)
 NumericKeyPad = Usage("consumer.NumericKeyPad", 0xc0002, NAry)

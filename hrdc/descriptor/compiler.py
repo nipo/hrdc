@@ -1,4 +1,4 @@
-import streamer
+from . import streamer
 from ..stream.formatter import base as formatter
 from ..stream import optimizer
 import sys

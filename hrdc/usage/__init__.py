@@ -1,18 +1,18 @@
-from usage import *
+from .usage import *
 
-import button
-import pid
-import keyboard
-import desktop
-import consumer
-import ordinal
-import simulation
-import led
-import vr
-import game
-import camera
-import device
-import digitizers
+from . import button
+from . import pid
+from . import keyboard
+from . import desktop
+from . import consumer
+from . import ordinal
+from . import simulation
+from . import led
+from . import vr
+from . import game
+from . import camera
+from . import device
+from . import digitizers
 # Arcade page looks vendor-specific (0xff00), dont include it by default
 # import arcade
-import sensors
+from . import sensors

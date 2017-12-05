@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 def Ordinal(n):
     return Usage("ordinal.Ordinal(%d)" % int(n), 0xa0000 + int(n), CL)

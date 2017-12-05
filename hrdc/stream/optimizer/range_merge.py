@@ -1,4 +1,4 @@
-from base import Optimizer
+from .base import Optimizer
 
 class RangeMerge(Optimizer):
     def __init__(self, stream, lookup, min, max):
@@ -17,7 +17,7 @@ class RangeMerge(Optimizer):
         from ..item import Item, LocalItem
 
         if self.minValue and self.maxValue and self.merging:
-            self.pending = filter(lambda x:x.kind != Item.Local or x.tag not in (self.lookup, self.min, self.max), self.pending)
+            self.pending = [x for x in self.pending if x.kind != Item.Local or x.tag not in (self.lookup, self.min, self.max)]
 
             if self.minValue == self.maxValue:
                 self.pending.append(Item.itemclass(Item.Local, self.lookup)(self.minValue))

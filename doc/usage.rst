@@ -38,11 +38,11 @@ Low-level HID Report Descriptor converter
 
 Low-level HID report descriptor stream can be converted from one
 representation to another with `hrdc.converter` entry point.  You may
-invoke it with `python -m`:
+invoke it with `python3 -m`:
 
 .. code:: bash
 
-  $ python -m hrdc.converter -h
+  $ python3 -m hrdc.converter -h
   usage: converter.py [-h] [-i NAME] [-o NAME] [-O] [input] [output]
   
   Convert a HID report descriptor
@@ -75,7 +75,7 @@ It may be converted to C code with the following command line:
 
 .. code:: bash
 
-  $ python -m hrdc.converter -i hex -o code mouse.hex
+  $ python3 -m hrdc.converter -i hex -o code mouse.hex
 
 which will output:
 
@@ -124,13 +124,13 @@ There is no semantic validation / extraction.
 Low-level to high-level descriptor decompiler
 ---------------------------------------------
 
-This tool is invoked through `python -m hrdc.descriptor.extractor`.
+This tool is invoked through `python3 -m hrdc.descriptor.extractor`.
 The output file is a Python script containing a high-level
 representation of the report descriptor.
 
 .. code:: bash
 
-  $ python -m hrdc.descriptor.extractor -h
+  $ python3 -m hrdc.descriptor.extractor -h
   usage: extractor.py [-h] [-i NAME] [input] [output]
   
   Decompile a HID report descriptor
@@ -150,7 +150,7 @@ The same mouse descriptor as above would be extracted with:
 
 .. code:: bash
 
-  $ python -m hrdc.descriptor.extractor -i hex mouse.hex mouse.py
+  $ python3 -m hrdc.descriptor.extractor -i hex mouse.hex mouse.py
 
 In turn, this file can be used as a python script.  `compile_main`
 directive at end of file will handle a command line, see `descriptor
@@ -196,7 +196,7 @@ generation of an output HID report descriptor item stream.
 
 .. code:: bash
 
-  $ python mouse.py -h
+  $ python3 mouse.py -h
   usage: mouse.py [-h] [-o NAME] [-N] [output]
   
   Compile a HID report descriptor
@@ -218,7 +218,7 @@ Here is an example of non-optimized report:
 
 .. code:: bash
 
-  $ python mouse.py -N -o code
+  $ python3 mouse.py -N -o code
        0x0b, 0x02, 0x00, 0x01, 0x00,  // Usage (desktop.Mouse)
        0xa1, 0x01,                    // Collection (Application)
        0x0b, 0x30, 0x00, 0x01, 0x00,  //     Usage (desktop.X)

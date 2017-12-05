@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 Belt = Usage("vr.Belt", 0x30001, CA)
 BodySuit = Usage("vr.BodySuit", 0x30002, CA)

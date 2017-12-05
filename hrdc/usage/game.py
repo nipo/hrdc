@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 ThreeDGameController = Usage("game.ThreeDGameController", 0x50001, CA)
 PinballDevice = Usage("game.PinballDevice", 0x50002, CA)

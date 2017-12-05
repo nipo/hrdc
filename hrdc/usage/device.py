@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 BatteryStrength = Usage("device.BatteryStrength", 0x60020, DV)
 WirelessChannel = Usage("device.WirelessChannel", 0x60021, DV)

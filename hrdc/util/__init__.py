@@ -1,1 +1,1 @@
-from named_constant import NamedConstant
+from .named_constant import NamedConstant

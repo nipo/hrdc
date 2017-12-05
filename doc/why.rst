@@ -139,7 +139,7 @@ extractor, it may become clearer:
 
 .. code:: bash
 
-  $ python -m hrdc.descriptor.extractor -i hex broken.hex
+  $ python3 -m hrdc.descriptor.extractor -i hex broken.hex
 
 .. code:: python
   :number-lines:
@@ -265,7 +265,7 @@ With extractor:
 
 .. code:: bash
 
-  $ python -m hrdc.descriptor.extractor -i hex broken2.hex
+  $ python3 -m hrdc.descriptor.extractor -i hex broken2.hex
 
 .. code:: python
   :number-lines:

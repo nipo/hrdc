@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 NoEvent = Usage("keyboard.NoEvent", 0x70000, Sel)
 Rollover = Usage("keyboard.Rollover", 0x70001, Sel)

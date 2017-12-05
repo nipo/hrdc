@@ -1,4 +1,4 @@
-from stream import *
+from .stream import *
 import sys
 import argparse
 

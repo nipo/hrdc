@@ -1,4 +1,4 @@
-from base import Optimizer
+from .base import Optimizer
 
 class UsagePage(Optimizer):
     precedence = 10

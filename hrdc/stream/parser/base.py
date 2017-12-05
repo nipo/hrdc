@@ -2,15 +2,15 @@ from ..stream import Stream
 from .. import item
 from ... import usage
 
-class Parser(Stream):
-    class __metaclass__(type):
-        def __init__(cls, name, bases, dct):
-            type.__init__(cls, name, bases, dct)
-            try:
-                Parser.registry[cls.__name__.lower()] = cls
-            except:
-                pass
+class _ParserMeta(type):
+    def __init__(cls, name, bases, dct):
+        type.__init__(cls, name, bases, dct)
+        try:
+            Parser.registry[cls.__name__.lower()] = cls
+        except:
+            pass
 
+class Parser(Stream, metaclass = _ParserMeta):
     registry = {}
 
     @classmethod
@@ -25,7 +25,7 @@ class Parser(Stream):
     def blobParse(self, blob):
         while blob:
             header = blob[0]
-            size = ord(header) & 0x3
+            size = header & 0x3
             data_size = (1 << (size - 1)) + 1 if size else 1
             item = blob[:data_size]
             blob = blob[data_size:]

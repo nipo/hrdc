@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 Pointer = Usage("desktop.Pointer", 0x10001, CP)
 Mouse = Usage("desktop.Mouse", 0x10002, CA)

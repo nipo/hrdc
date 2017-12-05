@@ -1,4 +1,4 @@
-from base import Parser
+from .base import Parser
 import re
 
 class Code(Parser):
@@ -8,6 +8,6 @@ class Code(Parser):
             contents += line.split("//", 1)[0] + " "
         contents = re.sub(r"/\*.*?\*/", "", contents)
         contents = re.sub(r"\s+", "", contents)
-        blob = ''.join([chr(int(x, 16)) for x in contents.split(",") if x])
+        blob = bytes(int(x, 16) for x in contents.split(",") if x)
         self.blobParse(blob)
             

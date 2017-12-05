@@ -1,4 +1,4 @@
-from base import Optimizer
+from .base import Optimizer
 
 class PhysicalMerge(Optimizer): 
     precedence = 50
@@ -15,7 +15,7 @@ class PhysicalMerge(Optimizer):
             GlobalItem.PhysicalMinimum: PhysicalMinimum(0),
             GlobalItem.PhysicalMaximum: PhysicalMaximum(0),
             }
-        self.changed = dict(self.current.items())
+        self.changed = dict(list(self.current.items()))
         self.pending = []
 
     def append(self, item):
@@ -35,7 +35,7 @@ class PhysicalMerge(Optimizer):
             for i in self.pending:
                 self.stream.append(i)
             self.pending = []
-            self.changed = dict(self.current.items())
+            self.changed = dict(list(self.current.items()))
             self.stream.append(item)
         else:
             self.pending.append(item)

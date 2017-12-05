@@ -1,4 +1,4 @@
-from usage import *
+from .usage import *
 
 def Button(n):
     return Usage("button.Button(%d)" % int(n), 0x90000 + int(n),

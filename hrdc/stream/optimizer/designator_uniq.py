@@ -1,4 +1,4 @@
-from base import Optimizer
+from .base import Optimizer
 
 class DesignatorUniq(Optimizer):
     precedence = 70

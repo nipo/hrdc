@@ -1,4 +1,4 @@
-import descriptor
+from . import descriptor
 from ..stream import item
 from ..usage import Usage, UsageRange
 from ..util import NamedConstant
