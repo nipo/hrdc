@@ -278,5 +278,5 @@ Next steps:
 - `descriptor language`_,
 - `optimization`_.
 
-.. _`optimization`: optimizations.html
-.. _`descriptor language`: descriptor.html
+.. _`optimization`: optimizations.rst
+.. _`descriptor language`: descriptor.rst
