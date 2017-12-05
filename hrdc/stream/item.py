@@ -291,7 +291,7 @@ class Unit(GlobalItem):
     G = NamedConstant("G", SILinear | time(-2) | length(1))
     Newton = NamedConstant("Newton", SILinear | time(-2) | length(1) | mass(1))
     Joule = NamedConstant("Joule", SILinear | time(-2) | length(2) | mass(1))
-    Voltage = NamedConstant("Voltage", SILinear | time(-3) | length(2) | mass(1) | current(-1))
+    Volt = NamedConstant("Volt", SILinear | time(-3) | length(2) | mass(1) | current(-1))
 
     _usual_units = {
         int(Centimeter): Centimeter,
@@ -310,7 +310,7 @@ class Unit(GlobalItem):
         int(G): G,
         int(Newton): Newton,
         int(Joule): Joule,
-        int(Voltage): Voltage,
+        int(Volt): Volt,
         }
 
     length = staticmethod(length)
