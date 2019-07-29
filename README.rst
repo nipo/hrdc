@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnipo%2Fhrdc.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnipo%2Fhrdc?ref=badge_shield)
+
 ================================
  HID Report Descriptor Compiler
 ================================
@@ -120,3 +122,7 @@ MIT
 .. _descriptor language: doc/descriptor.rst
 .. _rationale: doc/why.rst
 .. _examples: examples/
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnipo%2Fhrdc.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnipo%2Fhrdc?ref=badge_large)
