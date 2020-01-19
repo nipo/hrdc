@@ -10,8 +10,11 @@ class NamedConstant:
     def __str__(self):
         return self.name
 
-    def __cmp__(self, other):
-        return cmp(int(self), int(other))
+    def __lt__(self, other):
+        return int(self) < int(other)
+
+    def __eq__(self, other):
+        return int(self) == int(other)
 
     def __hash__(self):
         return hash(int(self))

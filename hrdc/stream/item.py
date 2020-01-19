@@ -107,14 +107,23 @@ class Item(metaclass = _ItemMeta):
             r += struct.pack(fmt, int(self.value))
         return r
 
-    def __cmp__(self, other):
+    def __eq__(self, other):
         if isinstance(other, Item):
-            return cmp(int(self.kind), int(other.kind)) \
-                   or cmp(int(self.tag), int(other.tag)) \
-                   or cmp(int(self.value), int(other.value))
+            return int(self.kind) == int(other.kind) \
+                   and int(self.tag) == int(other.tag) \
+                   and int(self.value) == int(other.value)
+        if other is None:
+            return 0
+        return id(self) == id(other)
+
+    def __lt__(self, other):
+        if isinstance(other, Item):
+            return int(self.kind) < int(other.kind) \
+                   or int(self.tag) < int(other.tag) \
+                   or int(self.value) < int(other.value)
         if other is None:
             return 1
-        return cmp(id(self), id(other))
+        return id(self) < id(other)
 
 class MainItem(Item):
     kind = Item.Main
