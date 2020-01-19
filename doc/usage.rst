@@ -68,7 +68,7 @@ hexadecimal format in `mouse.hex`:
 
 .. code::
 
-  05 01 09 02 a1 01 15 81 25 7f 75 08 95 02 09 30 09 31 81 04 15 00 25
+  05 01 09 02 a1 01 15 81 25 7f 75 08 95 02 09 30 09 31 81 06 15 00 25
   01 75 01 95 03 05 09 19 01 29 03 81 02 c0
 
 It may be converted to C code with the following command line:
@@ -90,7 +90,7 @@ which will output:
      0x95, 0x02,                    //     ReportCount (2)
      0x09, 0x30,                    //     Usage (X)
      0x09, 0x31,                    //     Usage (Y)
-     0x81, 0x04,                    //     Input (Relative)
+     0x81, 0x06,                    //     Input (Variable|Relative)
      0x15, 0x00,                    //     LogicalMinimum (0)
      0x25, 0x01,                    //     LogicalMaximum (1)
      0x75, 0x01,                    //     ReportSize (1)
@@ -181,8 +181,8 @@ A HID mouse device descriptor source code could be:
   from hrdc.descriptor import *
   
   descriptor = Collection(Collection.Application, desktop.Mouse,
-      Value(Value.Input, desktop.X, 8, flags = Value.Relative, logicalMin = -127, logicalMax = 127),
-      Value(Value.Input, desktop.Y, 8, flags = Value.Relative, logicalMin = -127, logicalMax = 127),
+      Value(Value.Input, desktop.X, 8, flags = Value.Variable | Value.Relative, logicalMin = -127, logicalMax = 127),
+      Value(Value.Input, desktop.Y, 8, flags = Value.Variable | Value.Relative, logicalMin = -127, logicalMax = 127),
       Value(Value.Input, button.Button(1), 1, logicalMin = 0, logicalMax = 1),
       Value(Value.Input, button.Button(2), 1, logicalMin = 0, logicalMax = 1),
       Value(Value.Input, button.Button(3), 1, logicalMin = 0, logicalMax = 1),
@@ -230,7 +230,7 @@ Here is an example of non-optimized report:
        0x55, 0x00,                    //     UnitExponent (0)
        0x95, 0x01,                    //     ReportCount (1)
        0x75, 0x08,                    //     ReportSize (8)
-       0x81, 0x04,                    //     Input (Relative)
+       0x81, 0x06,                    //     Input (Variable|Relative)
        0x0b, 0x31, 0x00, 0x01, 0x00,  //     Usage (desktop.Y)
        0x35, 0x00,                    //     PhysicalMinimum (0)
        0x45, 0x00,                    //     PhysicalMaximum (0)
@@ -240,7 +240,7 @@ Here is an example of non-optimized report:
        0x55, 0x00,                    //     UnitExponent (0)
        0x95, 0x01,                    //     ReportCount (1)
        0x75, 0x08,                    //     ReportSize (8)
-       0x81, 0x04,                    //     Input (Relative)
+       0x81, 0x06,                    //     Input (Variable|Relative)
        0x0b, 0x01, 0x00, 0x09, 0x00,  //     Usage (button.Button(1))
        0x35, 0x00,                    //     PhysicalMinimum (0)
        0x45, 0x00,                    //     PhysicalMaximum (0)

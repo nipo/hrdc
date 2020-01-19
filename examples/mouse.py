@@ -3,10 +3,10 @@ from hrdc.descriptor import *
 
 mouse = Collection(Collection.Application, desktop.Mouse,
                    Value(Value.Input, desktop.X, 8,
-                         flags = Value.Data | Value.Relative,
+                         flags = Value.Variable | Value.Relative,
                          logicalMin = -127, logicalMax = 127),
                    Value(Value.Input, desktop.Y, 8,
-                         flags = Value.Data | Value.Relative,
+                         flags = Value.Variable | Value.Relative,
                          logicalMin = -127, logicalMax = 127),
                    Value(Value.Input, button.Button(1), 1,
                          logicalMin = 0, logicalMax = 1),

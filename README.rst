@@ -72,7 +72,7 @@ If you are still reading, you probably know how to interpret this:
   0x95, 0x02,                    //     ReportCount (2)
   0x09, 0x30,                    //     Usage (X)
   0x09, 0x31,                    //     Usage (Y)
-  0x81, 0x04,                    //     Input (Relative)
+  0x81, 0x06,                    //     Input (Variable|Relative)
   0x15, 0x00,                    //     LogicalMinimum (0)
   0x25, 0x01,                    //     LogicalMaximum (1)
   0x75, 0x01,                    //     ReportSize (1)
@@ -89,8 +89,8 @@ source code to concentrate on this:
 .. code:: python
 
   descriptor = Collection(Collection.Application, desktop.Mouse,
-      Value(Value.Input, desktop.X, 8, flags = Value.Relative, logicalMin = -127, logicalMax = 127),
-      Value(Value.Input, desktop.Y, 8, flags = Value.Relative, logicalMin = -127, logicalMax = 127),
+      Value(Value.Input, desktop.X, 8, flags = Value.Variable | Value.Relative, logicalMin = -127, logicalMax = 127),
+      Value(Value.Input, desktop.Y, 8, flags = Value.Variable | Value.Relative, logicalMin = -127, logicalMax = 127),
       Value(Value.Input, button.Button(1), 1, logicalMin = 0, logicalMax = 1),
       Value(Value.Input, button.Button(2), 1, logicalMin = 0, logicalMax = 1),
       Value(Value.Input, button.Button(3), 1, logicalMin = 0, logicalMax = 1),
