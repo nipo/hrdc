@@ -89,7 +89,7 @@ class Extractor(Stream):
                 (item.LocalItem.StringMinimum, item.LocalItem.StringMaximum, self.strings),
                 ]:
                 if self.locals[int(min)] is not None and self.locals[int(max)] is not None and not target:
-                    for val in range(self.locals[int(min)], self.locals[int(max)] + 1):
+                    for val in range(int(self.locals[int(min)]), int(self.locals[int(max)] + 1)):
                         target.append(val)
 
             if i.tag == item.MainItem.Collection:
