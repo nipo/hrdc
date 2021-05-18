@@ -32,6 +32,7 @@ class Usage(_util.NamedConstant):
         0x8: "Led",
         0x9: "Button",
         0xa: "Ordinal",
+        0xb: "TelephonyDevice",
         0xc: "Consumer",
         0xd: "Digitizers",
         0xf: "PID",

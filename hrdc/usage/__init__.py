@@ -4,6 +4,7 @@ from . import button
 from . import pid
 from . import keyboard
 from . import desktop
+from . import telephony
 from . import consumer
 from . import ordinal
 from . import simulation
