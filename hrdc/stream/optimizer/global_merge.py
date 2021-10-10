@@ -13,8 +13,8 @@ class GlobalMerge(Optimizer):
         self.globals = {
             GlobalItem.Unit: Unit(0),
             GlobalItem.UnitExponent: UnitExponent(0),
-            GlobalItem.LogicalMinimum: LogicalMinimum(0),
-            GlobalItem.LogicalMaximum: LogicalMaximum(0),
+            GlobalItem.LogicalMinimum: None,
+            GlobalItem.LogicalMaximum: None,
             GlobalItem.PhysicalMinimum: PhysicalMinimum(0),
             GlobalItem.PhysicalMaximum: PhysicalMaximum(0),
             }
