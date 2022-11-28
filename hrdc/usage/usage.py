@@ -37,6 +37,7 @@ class Usage(_util.NamedConstant):
         0xd: "Digitizers",
         0xf: "PID",
         0x20: "Sensors",
+        0x59: "Lighting",
         0x90: "Camera",
         0xff00: "Arcade",
     }

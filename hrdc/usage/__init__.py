@@ -14,6 +14,7 @@ from . import game
 from . import camera
 from . import device
 from . import digitizers
+from . import lighting
 # Arcade page looks vendor-specific (0xff00), dont include it by default
 # import arcade
 from . import sensors
