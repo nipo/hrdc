@@ -14,5 +14,10 @@ class Code(Formatter):
         self.output.write("     " + blob.ljust(6 * 5) + " // " + (" " * self.indent * 4) + str(i) + "\n")
         if isinstance(i, item.Collection):
             self.indent += 1
-                          
+
+    def close(self):
+        if self.indent != 0:
+            import warnings
+            warnings.warn("Closing an item stream with non-zero indentation level")
+
                           

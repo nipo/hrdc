@@ -10,3 +10,6 @@ class Binary(Formatter):
 
     def append(self, i):
         self.output.write(i.bytes())
+
+    def close(self):
+        pass

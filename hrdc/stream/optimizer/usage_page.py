@@ -26,3 +26,6 @@ class UsagePage(Optimizer):
 
         if item.kind == Item.Global and item.tag == GlobalItem.UsagePage:
             self.page = int(item.value)
+
+    def close(self):
+        self.stream.close()

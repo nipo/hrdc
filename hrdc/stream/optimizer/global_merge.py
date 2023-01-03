@@ -19,6 +19,9 @@ class GlobalMerge(Optimizer):
             GlobalItem.PhysicalMaximum: PhysicalMaximum(0),
             }
 
+    def close(self):
+        self.stream.close()
+
     def append(self, item):
         from ..item import Item, GlobalItem
 

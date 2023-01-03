@@ -37,8 +37,9 @@ class RangeMerge(Optimizer):
         self.maxValue = None
         self.main = None
 
-    def __del__(self):
+    def close(self):
         self.flush()
+        self.stream.close()
 
     def append(self, item):
         from ..item import Item, LocalItem

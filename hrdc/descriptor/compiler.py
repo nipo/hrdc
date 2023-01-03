@@ -31,3 +31,4 @@ def compile_main(desc):
 
     visitor = streamer.Streamer(output)
     desc.accept(visitor)
+    output.close()

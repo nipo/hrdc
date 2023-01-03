@@ -11,6 +11,9 @@ class DesignatorUniq(Optimizer):
         self.pending = []
         self.designatorToFilter = None
 
+    def close(self):
+        self.stream.close()
+        
     def append(self, item):
         from ..item import Item, LocalItem, DesignatorIndex, \
              DesignatorMinimum, DesignatorMaximum

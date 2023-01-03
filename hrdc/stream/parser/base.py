@@ -30,6 +30,7 @@ class Parser(Stream, metaclass = _ParserMeta):
             item = blob[:data_size]
             blob = blob[data_size:]
             self.itemParse(item)
+        self.output.close()
 
     def itemParse(self, data):
         self.append(item.Item.parse(data))

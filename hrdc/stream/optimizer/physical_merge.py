@@ -47,6 +47,7 @@ class PhysicalMerge(Optimizer):
                                     GlobalItem.PhysicalMaximum):
                 self.changed[item.tag] = item
 
-    def __del__(self):
+    def close(self):
         for i in self.pending:
             self.stream.append(i)
+        self.stream.close()

@@ -75,10 +75,11 @@ class MainMerge(Optimizer):
         self.afterMain = []
         self.beforeCount = 0
 
-    def __del__(self):
+    def close(self):
         for i in self.beforeMain:
             self.stream.append(i)
         for i in self.mainItems:
             self.stream.append(i)
         for i in self.afterMain:
             self.stream.append(i)
+        self.stream.close()
