@@ -54,11 +54,16 @@ class MainMerge(Optimizer):
             if self.mainItems and item != self.mainItems[0]:
                 self.flush()
 
+            flush_after = self.afterCount != 1
+
             self.beforeMain += self.afterMain
             self.beforeCount += self.afterCount
             self.afterMain = []
             self.mainItems.append(item)
-            
+
+            if flush_after:
+                self.flush()
+
     def flush(self, until = 0):
         from ..item import ReportCount, Item, MainItem, GlobalItem
 
